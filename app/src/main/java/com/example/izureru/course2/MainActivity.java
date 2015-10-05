@@ -1,5 +1,6 @@
 package com.example.izureru.course2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = (Button)findViewById(R.id.button);
         Button button2 = (Button)findViewById(R.id.button2);
+        Button button3 = (Button)findViewById(R.id.button3);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
                 doStuff();
             }
         });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startSecondActivity();
+            }
+        });
     }
 
     private void doStuff() {
@@ -53,5 +63,14 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(editText.getText() + " " + editText.getText());
         textView2.setText(editText2.getText() + " " + editText2.getText());
     }
+
+    private void startSecondActivity(){
+        String inputStr = editText.getText().toString();
+
+        Intent i = new Intent(this, SecondActivity.class);
+
+        startActivity(i);
+    };
+
 
 }
