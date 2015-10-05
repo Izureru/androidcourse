@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,8 +24,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v("Tag", "Clicked");
+                doStuff();
             }
         });
+    }
+
+    private void doStuff() {
+        Toast.makeText(MainActivity.this, "Button was Pressed", Toast.LENGTH_SHORT).show();
     }
 
 }
