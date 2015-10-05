@@ -27,7 +27,7 @@ public class DummyListActivity extends AppCompatActivity {
     private void setDummyData() {
         for (int i = 0; i<10; i ++)
         {
-            dummyData.add("element " + 1);
+            dummyData.add("element " + i);
         }
     }
 
