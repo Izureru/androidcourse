@@ -1,5 +1,6 @@
 package com.example.izureru.course2;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,18 +18,27 @@ import java.util.ArrayList;
 public class DummyListActivity extends AppCompatActivity {
 
     ArrayList<Person> dummyData = new ArrayList<>();
+    private int number = 20;
+    private ListView lv;
+    private ArrayAdapter<Person> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dummy_list);
 
-        ListView lv = (ListView)findViewById(R.id.listView);
+        lv = (ListView)findViewById(R.id.listView);
+        findViewById(R.id.addPersonButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addDummyPerson();
+            }
+        });
 
         setDummyData();
-        lv.setAdapter(new ArrayAdapter<Person>(this, R.layout.custom_cell, R.id.textView5, dummyData)
-        {
 
+        adapter = new ArrayAdapter<Person>(this, R.layout.custom_cell, R.id.textView5, dummyData)
+        {
             class ViewHolder{
                 TextView t;
                 TextView details;
@@ -36,7 +46,8 @@ public class DummyListActivity extends AppCompatActivity {
             }
 
             @Override
-            public View getView(int position, View cell, ViewGroup parent) {
+            public View getView(int position, View cell, ViewGroup parent)
+            {
                 ViewHolder vh = null;
                 if (cell == null){
                     cell = getLayoutInflater().inflate(R.layout.custom_cell, parent, false);
@@ -58,8 +69,11 @@ public class DummyListActivity extends AppCompatActivity {
                 cell.setBackgroundColor((position%2 == 0) ? Color.GRAY: Color.GREEN);
                 return cell;
             }
-        });
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        };
+
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.v("TAG",  "Click" + dummyData.get(position));
@@ -78,4 +92,23 @@ public class DummyListActivity extends AppCompatActivity {
         }
     }
 
+    private void addDummyPerson(){
+        Intent i = new Intent(this, AddPerson.class);
+        startActivityForResult(i, 1234);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Person p = new Person();
+
+        if (data != null) {
+            p.setName(data.getStringExtra("Name"));
+            p.setAddress(data.getStringExtra("Address"));
+            p.setJob(data.getStringExtra("Job"));
+            adapter.add(p);
+        }
+        else{
+            Log.v("CRASHING :(","Error Adding Person");
+        }
+    }
 }

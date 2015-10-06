@@ -6,4 +6,5 @@
     <string name="title_activity_second">SecondActivity</string>
     <string name="title_activity_dummy_list">DummyListActivity</string>
     <string name="title_activity_custom_cell">CustomCellActivity</string>
+    <string name="title_activity_add_person">AddPerson</string>
 </resources>

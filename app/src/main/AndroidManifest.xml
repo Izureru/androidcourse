@@ -24,6 +24,10 @@
             android:name=".DummyListActivity"
             android:label="@string/title_activity_dummy_list" >
         </activity>
+        <activity
+            android:name=".AddPerson"
+            android:label="@string/title_activity_add_person" >
+        </activity>
     </application>
 
 </manifest>
