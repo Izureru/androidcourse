@@ -9,7 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Add Person"
         android:id="@+id/button4"
         android:layout_below="@+id/jobTV"
         android:layout_alignParentLeft="true"
@@ -19,12 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/nameTV"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="Name" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -35,17 +35,17 @@
         android:layout_below="@+id/nameTV"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Address" />
+        android:hint="Address" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Job"
         android:ems="10"
         android:id="@+id/jobTV"
         android:layout_below="@+id/addressTV"
         android:layout_alignRight="@+id/button4"
-        android:layout_alignEnd="@+id/button4" />
+        android:layout_alignEnd="@+id/button4"
+        android:hint="Job" />
 
 </RelativeLayout>
