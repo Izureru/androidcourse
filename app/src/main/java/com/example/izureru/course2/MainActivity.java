@@ -64,10 +64,14 @@ public class MainActivity extends AppCompatActivity {
         textView2.setText(editText2.getText() + " " + editText2.getText());
     }
 
+    private void doSomethingElse() {
+        Log.v("Hola", "This is a Break");
+    }
+
     private void startSecondActivity(){
         String inputStr = editText.getText().toString();
 
-        Intent i = new Intent(this, SecondActivity.class);
+        Intent i = new Intent(this, DummyListActivity.class);
 
         startActivity(i);
     };
