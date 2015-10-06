@@ -22,7 +22,7 @@ public class DummyListActivity extends AppCompatActivity {
         ListView lv = (ListView)findViewById(R.id.listView);
 
         setDummyData();
-        lv.setAdapter(new ArrayAdapter<Person>(this, android.R.layout.simple_list_item_1, dummyData));
+        lv.setAdapter(new ArrayAdapter<Person>(this, R.layout.custom_cell, R.id.textView5, dummyData));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
