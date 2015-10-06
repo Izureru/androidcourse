@@ -14,6 +14,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class DummyListActivity extends AppCompatActivity {
 
@@ -110,5 +115,29 @@ public class DummyListActivity extends AppCompatActivity {
         else{
             Log.v("CRASHING :(","Error Adding Person");
         }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        getDataFromService();
+    }
+
+    private void getDataFromService() {
+        RetroFitNetworkIF.retroFitNetworkService().listPersons(new Callback<List<Person>>() {
+            @Override
+            public void success(List<Person> persons, Response response) {
+                Log.v("TAG","Got People");
+                for (Person p : persons)
+                {
+                    adapter.add(p);
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e("TAG","Oops Network Error "+ error);
+            }
+        });
     }
 }

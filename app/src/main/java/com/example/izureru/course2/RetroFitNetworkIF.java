@@ -15,7 +15,8 @@ import retrofit.converter.GsonConverter;
  */
 public class RetroFitNetworkIF {
     private static RestAdapter restAdapter;
-    private static String baseURL= "";
+    private static RetroFitNetworkService retroFitNetworkService;
+    private static String baseURL= "http://192.168.1.125:4567";
 
     private static RestAdapter getAdapter(){
         if (restAdapter == null){
@@ -31,5 +32,12 @@ public class RetroFitNetworkIF {
                     .build();
         }
         return restAdapter;
+    }
+
+    public static RetroFitNetworkService retroFitNetworkService(){
+        if (retroFitNetworkService == null){
+            retroFitNetworkService = getAdapter().create(RetroFitNetworkService.class);
+        }
+        return retroFitNetworkService;
     }
 }
