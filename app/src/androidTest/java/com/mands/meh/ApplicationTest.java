@@ -1,4 +1,4 @@
-package com.example.izureru.course2;
+package com.mands.meh;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
