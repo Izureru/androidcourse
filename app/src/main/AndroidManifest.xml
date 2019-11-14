@@ -25,5 +25,4 @@
             android:label="@string/title_activity_dummy_list" >
         </activity>
     </application>
-
 </manifest>
