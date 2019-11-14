@@ -2,6 +2,7 @@
     <string name="app_name">Course2</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="hello_worldy">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="title_activity_dummy_list">DummyListActivity</string>
